@@ -4,7 +4,10 @@ var Posts=require('../models/posts.js')
 var router = express.Router();
 
 /* GET home page. */
-router.post('/nft/upload', function(req, res, next) {
+router.get('/', function(req, res, next) {
+  res.status(200).json({success:'deployed successfully'})
+ })
+.post('/nft/upload', function(req, res, next) {
  const {postUrl,title,name,address,colabName,colabAddress}=req.body;
   console.log(req.body);
   Posts.create({postUrl,title,name,address,colabName,colabAddress},(err,post)=>{
